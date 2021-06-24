@@ -14,6 +14,7 @@
         />
 
         <link rel="stylesheet" href="style.css" />
+        <script src="app.js" defer></script>
 
         <title>War</title>
     </head>
@@ -21,23 +22,29 @@
         <div class="app-container">
             <header class="app-header">
                 <div class="app-toggler">
-                    <i class="fas fa-bars"></i>
+                    <i class="fas fa-bars" id="toggler"></i>
                     <h2>W</h2>
                 </div>
                 <div class="profile-avatar">AO</div>
             </header>
 
             <main class="main-container">
-                <aside class="sidebar">hsdfsbdh</aside>
-                <div class="editor-display"></div>
+                <aside id="sidebr" class="sidebar"></aside>
+                <div class="editor-toggler" id="editorToggler">
+                    Toggle
+                </div>
+                <div id="editorDisplay" class="editor-display">
+                </div>
                 <div class="notes-display">
-                    <div class="default-screen">
+                    <div id="defaultScreen" class="default-screen">
+                        <div class="default-image"></div>
                         <h3>No notes yet. Take notes</h3>
                         <span>Click add on bottom right to add notes</span>
-                        <div class="add-note">
+                        <div id="addNote" class="add-note">
                             <i class="far fa-edit"></i>
                         </div>
                     </div>
+                    <div class="main-notes" id="mainNotes"></div>
                 </div>
             </main>
         </div>
