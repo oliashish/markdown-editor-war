@@ -7,14 +7,16 @@ html,
 body {
     height: 100%;
 }
+.app-container {
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    overflow: hidden;
+}
 
-@media (max-width: 600px) {
-    .app-container {
-        width: 100%;
-        margin: auto;
-        height: 100%;
-        overflow: hidden;
-    }
+/*  small devices less then 500px */
+
+@media (max-width: 500px) {
     .app-header {
         width: 100%;
         margin: auto;
@@ -42,35 +44,31 @@ body {
     .main-container {
         width: 100%;
         height: 100%;
-        margin-right: auto;
+        margin: auto;
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
-        z-index: -1;
     }
     .sidebar {
+        width: 70%;
+        height: 100%;
         position: absolute;
         left: 0;
-        width: 80%;
-        height: 100%;
-        margin-right: auto;
         background: #67a7fb;
-        z-index: 1;
+        display: none;
     }
     .editor-display {
-        position: absolute;
-        left: 0;
         width: 100%;
         height: 100%;
         margin: auto;
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background: yellow;
         display: none;
     }
     .notes-display {
-        position: absolute;
-        left: 0;
         width: 100%;
         height: 100%;
         display: flex;
@@ -95,8 +93,127 @@ body {
         background-image: url("/images/defaultscrn.svg");
         background-repeat: no-repeat;
         background-size: contain;
+        background-position: center;
     }
     .default-screen h3 {
+        font-size: 25px;
+    }
+    .default-screen span {
+        font-size: 10px;
+    }
+    .add-note {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        padding: 0px 10px 20px 10px;
+        z-index: 10;
+    }
+    .add-note i {
+        font-size: 40px;
+        color: #67a7fb;
+    }
+    .main-notes {
+        width: 100%;
+        margin: auto;
+        height: 100%;
+        background: purple;
+        display: none;
+    }
+    .editor-toggler {
+        z-index: 5;
+        padding: 0px 10px;
+        position: absolute;
+        top: 9%;
+        right: 3%;
+        transform: translate(-3%, -9%);
+        background: black;
+        color: white;
+    }
+}
+
+/* from 500px to 600px just for smooth responsiveness  */
+
+@media (min-width: 500px) {
+    .app-header {
+        width: 100%;
+        margin: auto;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #ededf4;
+        box-shadow: 0px 2px 5px whitesmoke;
+    }
+    .profile-avatar {
+        border: 1px solid whitesmoke;
+        padding: 5px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 2px 2px gainsboro;
+    }
+    .app-toggler {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .app-toggler i {
+        margin-right: 15px;
+    }
+    .main-container {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .sidebar {
+        width: 70%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        background: #67a7fb;
+        display: none;
+    }
+    .editor-display {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: yellow;
+        display: none;
+    }
+    .notes-display {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+    .default-screen {
+        width: 80%;
+        height: 60%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .default-image {
+        width: 100%;
+        height: 60%;
+        margin: auto;
+        background-image: url("/images/defaultscrn.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+    }
+    .default-screen h3 {
+        margin-top: 30px;
         font-size: 30px;
     }
     .default-screen span {
@@ -107,15 +224,13 @@ body {
         bottom: 0;
         right: 0;
         padding: 0px 10px 20px 10px;
+        z-index: 10;
     }
     .add-note i {
         font-size: 40px;
         color: #67a7fb;
     }
     .main-notes {
-        position: absolute;
-        top: 0;
-        left: 0;
         width: 100%;
         margin: auto;
         height: 100%;
@@ -123,7 +238,7 @@ body {
         display: none;
     }
     .editor-toggler {
-        z-index: 10;
+        z-index: 5;
         padding: 0px 10px;
         position: absolute;
         top: 9%;
@@ -131,5 +246,111 @@ body {
         transform: translate(-3%, -9%);
         background: black;
         color: white;
+    }
+}
+
+/* from 600px , medium sized devices */
+
+@media (min-width: 600px) {
+    .profile-avatar {
+        padding: 7px;
+    }
+    .sidebar {
+        width: 50%;
+    }
+
+    .app-toggler i {
+        font-size: 20px;
+    }
+    .app-toggler h2 {
+        font-size: 30px;
+    }
+
+    .default-screen h3 {
+        margin-top: 35px;
+        font-size: 33px;
+    }
+    .default-screen span {
+        font-size: 17px;
+    }
+}
+
+/* for tablet */
+
+@media (min-width: 767px) {
+    .profile-avatar {
+        padding: 8px;
+    }
+    .app-toggler i {
+        margin-right: 18px;
+    }
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sidebar {
+        width: 40%;
+        height: 100%;
+        position: relative;
+        background: #67a7fb;
+        display: flex;
+    }
+    .editor-display {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: yellow;
+    }
+    .notes-display {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+}
+
+@media (min-width: 900px) {
+    .profile-avatar {
+        padding: 10px;
+    }
+    .app-toggler i {
+        margin-right: 20px;
+    }
+    .sidebar {
+        width: 35%;
+        height: 100%;
+        position: relative;
+        background: #67a7fb;
+        display: flex;
+    }
+    .editor-display {
+        width: 100%;
+        display: flex;
+    }
+    .notes-display {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sidebar {
+        width: 30%;
+        height: 100%;
+        position: relative;
+        background: #67a7fb;
+        display: flex;
+    }
+    .editor-display {
+        width: 100%;
+        display: flex;
+    }
+    .notes-display {
+        width: 100%;
     }
 }
