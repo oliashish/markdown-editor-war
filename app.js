@@ -9,10 +9,7 @@ const editorToggler = document.getElementById("editorToggler");
 const notesContainer = document.getElementById("notesContainer");
 
 // default tasks for toggling conditionally
-defaultScreen.style.display = "block";
-mainNotes.style.display = "none";
-editorDisplay.style.display = "none";
-editorToggler.style.display = "none";
+// editorToggler.style.display = "none";   
 
 // default screen eventlistners mostly for toggling
 toggler.addEventListener("click", () => {
