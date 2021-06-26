@@ -14,7 +14,7 @@
         />
 
         <link rel="stylesheet" href="style.css" />
-        <script src="app.js" defer></script>
+        <script src="app.js" type="module" defer></script>
 
         <title>War</title>
     </head>
@@ -29,27 +29,39 @@
             </header>
 
             <main class="main-container">
-                <aside id="sidebr" class="sidebar"></aside>
+                <aside id="sidebr" class="sidebar">
+                    <div class="search-container">
+                        <input
+                            type="text"
+                            placeholder="search notes .."
+                            name="searchbar"
+                        />
+                        <label for="searchbar"
+                            ><i class="fas fa-search"></i
+                        ></label>
+                    </div>
+                    <div class="notes-list" id="notesList">
+                        <ul>
+                            <li contenteditable="true">note 1</li>
+                        </ul>
+                    </div>
+                </aside>
+
                 <div class="editor-toggler" id="editorToggler">Toggle</div>
                 <div id="editorDisplay" class="editor-display">
-                    <section class="title-area"><input type="text" /></section>
                     <section class="edit-options">
                         <ul class="edit-ops">
-                            <li>a</li>
-                            <li>b</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
-                            <li>2</li>
+                            <li><i class="fas fa-bold"></i></li>
+                            <li><i class="fas fa-underline"></i></li>
+                            <li><i class="fas fa-italic"></i></li>
+                            <li class="custom-icon">H1</li>
+                            <li class="custom-icon">H2</li>
+                            <li class="custom-icon">H3</li>
+                            <li><i class="fas fa-link"></i></li>
+                            <li><i class="fas fa-code"></i></li>
+                            <li><i class="fas fa-list-ul"></i></li>
+
+                            <li><i class="fas fa-quote-right"></i></li>
                         </ul>
                     </section>
                     <section class="main-editor-area">
@@ -66,26 +78,6 @@
                         </div>
                     </div>
                     <div class="main-notes" id="mainNotes">
-                        <section class="title-area">title</section>
-                        <section class="edit-options">
-                            <ul class="edit-ops">
-                                <li>a</li>
-                                <li>b</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                                <li>2</li>
-                            </ul>
-                        </section>
                         <section class="main-display-area">usufod</section>
                     </div>
                 </div>
