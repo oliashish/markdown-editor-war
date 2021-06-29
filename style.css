@@ -8,525 +8,162 @@ body {
     height: 100%;
 }
 .app-container {
+    height: 100%;
+}
+
+.app-header {
+    width: 100%;
+    margin: auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1a3750;
+    position: sticky;
+}
+.profile-avatar {
+    border: 1px solid whitesmoke;
+    padding: 5px;
+    color: whitesmoke;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px 2px gainsboro;
+    cursor: pointer;
+}
+.app-toggler {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(229, 237, 248);
+}
+.app-toggler > i {
+    margin-right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.main-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.sidebar {
+    width: 35%;
+    height: 100%;
+    background: #ececec;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+.search-container > input {
+    width: 80%;
+    background: transparent;
+    color: rgb(31, 31, 31);
+    border: none;
+    border-bottom: 1px solid rgb(157, 180, 202);
+    color: black;
+}
+.search-container > input:focus {
+    outline: none;
+}
+.search-container > label {
+    color: rgb(83, 83, 83);
+}
+.notes-list {
+    color: rgb(100, 100, 100);
+    margin-top: 25px;
+    padding: 20px 10px;
+    border: none;
+  
+}
+.notes-list > ul {
+    list-style-type: none;
+}
+.notes-list > ul > li {
+    border: none;
+    border-bottom: 1px solid rgb(157, 180, 202);
+    line-break: anywhere;
+}
+.notes-list > ul > li:focus {
+    outline: none;
+}
+.editor-display {
     width: 100%;
     margin: auto;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     overflow: hidden;
+    background: #1a3750;
 }
 
-/*  small devices less then 500px */
+.edit-options {
+    width: 100%;
+    height: 50px;
+    margin-left: 15px;
+    background: #172135;
+}
+.edit-ops {
+    display: flex;
+    justify-content: space-evenly;
+    list-style-type: none;
+    align-items: center;
+}
+.custom-icon {
+    font-weight: bold;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+.edit-ops li {
+    padding-top: 10px;
+    color: rgb(179, 177, 177);
+}
+.main-editor-area {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    border: none;
+}
+.main-editor-area > textarea {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background: #1a3750;
+    padding: 20px;
+    border: none;
+    color: whitesmoke;
+    font-size: 15px;
+    font-family: monospace;
+}
+.main-editor-area > textarea:focus {
+    outline: none;
+}
+.notes-display {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background: rgb(197, 206, 247);
+}
+.notes-display > h1 {
+    margin: 7px 25px;
+}
 
-@media (max-width: 500px) {
-    .app-header {
-        width: 100%;
-        margin: auto;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #ededf4;
-        box-shadow: 0px 2px 5px whitesmoke;
-    }
-    .profile-avatar {
-        border: 1px solid whitesmoke;
-        padding: 5px;
-        border-radius: 50%;
-        box-shadow: 0px 0px 2px 2px gainsboro;
-    }
-    .app-toggler {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .app-toggler i {
-        margin-right: 15px;
-    }
-    .main-container {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
+.main-notes {
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    background: rgb(243, 243, 243);
+}
+
+@media (max-width: 800px) {
     .sidebar {
-        width: 70%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        background: #67a7fb;
         display: none;
-    }
-    .search-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px auto;
-    }
-    .search-container input {
-        width: 80%;
-        background: transparent;
-        color: whitesmoke;
-        border: none;
-        border-bottom: 1px solid white;
-    }
-    .search-container input:focus {
-        outline: none;
-    }
-    .search-container label {
-        color: whitesmoke;
-    }
-    .notes-list {
-        color: white;
-        margin-top: 20px;
-        padding: 10px 20px;
-        border: none;
-        border-top: 1px solid rgb(153, 153, 153);
-    }
-    .notes-list > ul {
-        list-style-type: none;
-    }
-    .notes-list > ul > li {
-        border: none;
-        border-bottom: 1px solid rgb(219, 206, 206);
-    }
-    .editor-display {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: yellow;
-        display: none;
-    }
-    .edit-options {
-        width: 100%;
-        height: 50px;
-        left: 0;
-        background: #67a7fb;
-    }
-    .edit-ops {
-        display: flex;
-        justify-content: space-evenly;
-        list-style-type: none;
-        align-items: center;
-    }
-    .edit-ops li {
-        padding-top: 10px;
-    }
-    .custom-icon {
-        font-weight: bold;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    }
-    .main-editor-area {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-    }
-    .main-editor-area > textarea {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-        background: chartreuse;
-        padding: 20px;
-        font-size: 13px;
-        font-family: monospace;
-    }
-
-    .notes-display {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-    }
-    .default-screen {
-        width: 80%;
-        height: 60%;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-    .default-image {
-        width: 100%;
-        height: 60%;
-        margin: auto;
-        background-image: url("/images/defaultscrn.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
-    .default-screen h3 {
-        font-size: 25px;
-    }
-    .default-screen span {
-        font-size: 10px;
-    }
-    .add-note {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        padding: 0px 10px 20px 10px;
-        z-index: 10;
-    }
-    .add-note i {
-        font-size: 40px;
-        color: #67a7fb;
-    }
-    .main-notes {
-        width: 100%;
-        margin: auto;
-        height: 100%;
-        background: purple;
-        display: none;
-    }
-    .editor-toggler {
-        z-index: 5;
-        padding: 0px 10px;
-        position: absolute;
-        top: 9%;
-        right: 3%;
-        transform: translate(-3%, -9%);
-        background: black;
-        color: white;
-    }
-}
-
-/* from 500px to 600px just for smooth responsiveness  */
-
-@media (min-width: 500px) {
-    .app-header {
-        width: 100%;
-        margin: auto;
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #ededf4;
-        box-shadow: 0px 2px 5px whitesmoke;
-    }
-    .profile-avatar {
-        border: 1px solid whitesmoke;
-        padding: 5px;
-        border-radius: 50%;
-        box-shadow: 0px 0px 2px 2px gainsboro;
-    }
-    .app-toggler {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .app-toggler i {
-        margin-right: 15px;
-    }
-    .main-container {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-    .sidebar {
-        width: 70%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        background: #67a7fb;
-        display: none;
-    }
-    .search-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px auto;
-    }
-    .search-container input {
-        width: 80%;
-        background: transparent;
-        color: whitesmoke;
-        border: none;
-        border-bottom: 1px solid white;
-    }
-    .search-container input:focus {
-        outline: none;
-    }
-    .search-container label {
-        color: whitesmoke;
-    }
-    .notes-list {
-        color: white;
-        margin-top: 20px;
-        padding: 10px 20px;
-        border: none;
-        border-top: 1px solid rgb(153, 153, 153);
-    }
-    .notes-list > ul {
-        list-style-type: none;
-    }
-    .notes-list > ul > li {
-        border: none;
-        border-bottom: 1px solid rgb(219, 206, 206);
-    }
-    .editor-display {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: yellow;
-        display: none;
-    }
-    .title-area {
-        width: 100%;
-        height: 40px;
-        border-bottom: 1px solid rgb(216, 216, 216);
-    }
-    .title-area input {
-        width: 100%;
-        height: 100%;
-        padding-left: 20px;
-        font-size: 20px;
-        border: none;
-        background: transparent;
-    }
-    .title-area input:focus {
-        outline: none;
-    }
-    .edit-options {
-        width: 100%;
-        height: 50px;
-
-        background: #67a7fb;
-    }
-    .edit-ops {
-        display: flex;
-        justify-content: space-evenly;
-        list-style-type: none;
-        align-items: center;
-    }
-    .custom-icon {
-        font-weight: bold;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    }
-    .edit-ops li {
-        padding-top: 10px;
-    }
-    .main-editor-area {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-    }
-    .main-editor-area > textarea {
-        width: 100%;
-        height: 100%;
-        margin: auto;
-        background: chartreuse;
-        padding: 20px;
-        font-size: 15px;
-        font-family: monospace;
-    }
-    .notes-display {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-    }
-    .default-screen {
-        width: 80%;
-        height: 60%;
-        margin: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-    .default-image {
-        width: 100%;
-        height: 60%;
-        margin: auto;
-        background-image: url("/images/defaultscrn.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-    }
-    .default-screen h3 {
-        margin-top: 30px;
-        font-size: 30px;
-    }
-    .default-screen span {
-        font-size: 15px;
-    }
-    .add-note {
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        padding: 0px 10px 20px 10px;
-        z-index: 10;
-    }
-    .add-note i {
-        font-size: 40px;
-        color: #67a7fb;
-    }
-    .main-notes {
-        width: 100%;
-        margin: auto;
-        height: 100%;
-        background: purple;
-        display: none;
-    }
-    .editor-toggler {
-        z-index: 5;
-        padding: 0px 10px;
-        position: absolute;
-        top: 9%;
-        right: 3%;
-        transform: translate(-3%, -9%);
-        background: black;
-        color: white;
-    }
-}
-
-/* from 600px , medium sized devices */
-
-@media (min-width: 600px) {
-    .profile-avatar {
-        padding: 7px;
-    }
-    .sidebar {
-        width: 50%;
-    }
-
-    .app-toggler i {
-        font-size: 20px;
-    }
-    .app-toggler h2 {
-        font-size: 30px;
-    }
-
-    .default-screen h3 {
-        margin-top: 35px;
-        font-size: 33px;
-    }
-    .default-screen span {
-        font-size: 17px;
-    }
-}
-
-/* for tablet */
-
-@media (min-width: 767px) {
-    .profile-avatar {
-        padding: 8px;
-    }
-    .app-toggler i {
-        margin-right: 18px;
-    }
-    .main-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .sidebar {
-        width: 40%;
-        height: 100%;
-        position: relative;
-        background: #67a7fb;
-        display: flex;
-    }
-    .editor-display {
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-    }
-    .main-editor-area > textarea {
-        font-size: 17px;
-        font-family: monospace;
-    }
-    .notes-display {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-    }
-}
-
-@media (min-width: 900px) {
-    .profile-avatar {
-        padding: 10px;
-    }
-    .app-toggler i {
-        margin-right: 20px;
-    }
-    .sidebar {
-        width: 35%;
-        height: 100%;
-        position: relative;
-        background: #67a7fb;
-        display: flex;
-    }
-    .editor-display {
-        width: 100%;
-        display: flex;
-    }
-    .notes-display {
-        width: 100%;
-    }
-}
-
-@media (min-width: 1024px) {
-    .sidebar {
-        width: 30%;
-        height: 100%;
-        position: relative;
-        background: #67a7fb;
-        display: flex;
-    }
-    .editor-display {
-        width: 100%;
-        display: flex;
-    }
-    .notes-display {
-        width: 100%;
-    }
-}
-
-@media (min-width: 1250px) {
-    .main-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .sidebar {
-        width: 30%;
-        height: 100%;
-        position: relative;
-        background: #67a7fb;
-        display: flex;
-    }
-    .editor-display {
-        width: 100%;
-        display: flex;
-    }
-    .notes-display {
-        width: 100%;
-        display: flex;
     }
 }
