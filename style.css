@@ -75,13 +75,39 @@ body {
 }
 .notes-list {
     color: rgb(100, 100, 100);
-    margin-top: 25px;
+
     padding: 20px 10px;
     border: none;
-  
 }
+.notes-list > div {
+    text-align: center;
+
+    padding: 8px 5px 5px 5px;
+    color: rgb(218, 218, 218);
+}
+.notes-list > div > input {
+    border: none;
+    border-bottom: 2px solid rgb(224, 217, 217);
+    background: transparent;
+    font-size: 17px;
+    color: rgb(49, 49, 49);
+}
+.notes-list > div > button {
+    background: #1a3750;
+    width: 100%;
+    padding: 5px 0px;
+}
+.notes-list > div > button > i {
+    color: rgb(240, 240, 240);
+    font-size: 20px;
+}
+.notes-list > div > input:focus {
+    outline: none;
+}
+
 .notes-list > ul {
     list-style-type: none;
+    margin-top: 10px;
 }
 .notes-list > ul > li {
     border: none;
@@ -91,6 +117,7 @@ body {
 .notes-list > ul > li:focus {
     outline: none;
 }
+
 .editor-display {
     width: 100%;
     margin: auto;
@@ -159,6 +186,7 @@ body {
     width: 100%;
     margin: auto;
     height: 100%;
+    padding: 20px;
     background: rgb(243, 243, 243);
 }
 
