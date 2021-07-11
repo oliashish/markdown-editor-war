@@ -1,5 +1,17 @@
+import { config } from "./firebase.js";
+import login from "./login.js";
+import signup from "./signup.js";
+import notes from "./notes.js";
+
+
+
+
+firebase.initializeApp(config);
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
 // markdown parser
-const markdown = window.markdownit({
+const markdown = markdownit({
     html: true,
     typographer: true,
 });

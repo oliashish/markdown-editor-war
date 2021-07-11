@@ -14,13 +14,27 @@
         />
 
         <link rel="stylesheet" href="style.css" />
-        <script src="app.js" type="module" defer></script>
         <script
             src="https://cdnjs.cloudflare.com/ajax/libs/markdown-it/12.0.6/markdown-it.min.js"
             integrity="sha512-7U8vY7c6UQpBNQOnBg3xKX502NAckvk70H1nWvh6W7izA489jEz+RCN3ntT1VMdXewaSKkOrEBegp/h6SPXrjw=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"
         ></script>
+        <!--Firebase Libraries-->
+        <script
+            defer
+            src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"
+        ></script>
+        <script
+            defer
+            src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"
+        ></script>
+        <script
+            defer
+            src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"
+        ></script>
+
+        <script defer src="./script/app.js" type="module"></script>
 
         <title>War</title>
     </head>
@@ -31,7 +45,10 @@
                     <i class="fas fa-bars" id="toggler"></i>
                     <h1>W</h1>
                 </div>
-                <div class="profile-avatar">AO</div>
+                <a href="/signup.html" class="rgstr-btn" id="registerFormBtn">
+                    <button>SignUp / LogIn</button>
+                </a>
+                <div class="profile-avatar"></div>
             </header>
 
             <main class="main-container">
@@ -60,6 +77,9 @@
 
                         <ul id="notesList"></ul>
                     </div>
+                    <button id="saveNotesBtn" class="save-notes-btn">
+                        Save
+                    </button>
                 </aside>
 
                 <div id="editorDisplay" class="editor-display">
@@ -84,6 +104,7 @@
                 </div>
                 <section id="notesContainer" class="notes-display">
                     <h1>Your Notes</h1>
+
                     <div class="main-notes">
                         <section
                             id="mainNotes"
