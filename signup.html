@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sign-Up</title>
+        <link rel="stylesheet" href="/signup.css" />
+        <script
+            defer
+            src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"
+        ></script>
+        <script
+            defer
+            src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"
+        ></script>
+        <script
+            defer
+            src="https://www.gstatic.com/firebasejs/7.15.5/firebase-firestore.js"
+        ></script>
+        <script defer src="./script//signup.js" type="module"></script>
+    </head>
+    <body>
+        <div class="signup-container">
+            <div class="signup-box">
+                <h1>Please Signup to continue</h1>
+                <form id="signupForm" class="signup-form">
+                    <input
+                        name="username"
+                        type="text"
+                        id="username"
+                        placeholder="enter your name"
+                        required
+                    />
+
+                    <input
+                        name="email"
+                        type="email"
+                        id="email"
+                        placeholder="enter your email"
+                        required
+                    />
+
+                    <input
+                        name="password"
+                        type="password"
+                        id="password"
+                        placeholder="enter your password"
+                        required
+                    />
+                    <button type="submit" id="registerBtn" class="register">
+                        SIGNUP
+                    </button>
+                    <a href="/login.html">already have an account?</a>
+                    <div class="error-container" id="signupError"></div>
+                    <div class="error-container" id="signupError2"></div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

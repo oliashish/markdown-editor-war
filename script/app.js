@@ -1,5 +1,5 @@
 // markdown parser
-const markdown = window.markdownit({
+const markdown = markdownit({
     html: true,
     typographer: true,
 });
@@ -9,11 +9,11 @@ const toggler = document.getElementById("toggler");
 const sidebr = document.getElementById("sidebr");
 const mainEditorArea = document.getElementById("mainEditorArea");
 const mainNotes = document.getElementById("mainNotes");
-const addNote = document.getElementById("addNote");
+const addNoteBtn = document.getElementById("addNote");
 const notesList = document.getElementById("notesList");
 const noteInput = document.getElementById("noteInput");
 
-// default screen eventlistners for toggling
+// default screen eventlistners for toggling sidebar
 toggler.addEventListener("click", () => {
     sidebr.style.display == "none"
         ? (sidebr.style.display = "block")
@@ -41,8 +41,10 @@ noteInput.addEventListener("keypress", (e) => {
         noteInput.value = "";
     }
 });
-addNote.addEventListener("click", () => {
-    noteInput.value !== "" ? appendNewNote(noteInput.value) : addNote.disable;
+addNoteBtn.addEventListener("click", () => {
+    noteInput.value !== ""
+        ? appendNewNote(noteInput.value)
+        : addNoteBtn.disable;
     noteInput.value = "";
 });
 
