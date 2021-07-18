@@ -1,33 +1,5 @@
 import { config } from "./firebase.js";
 
-firebase.initializeApp(config);
-const auth = firebase.auth();
-const firestore = firebase.firestore();
-
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        firestore
-            .collection("users")
-            .doc(user.uid)
-            .get()
-            .then((snapshot) => {
-                let username = snapshot.data().displayName;
-            });
-    } else {
-        alert(
-            "your login session has expired or you have logged out, login again to continue"
-        );
-        location = "login.html";
-    }
-});
-
-// markdown parser
-const markdown = markdownit({
-    linkify: false,
-    typographer: false,
-    quotes: "“”‘’",
-});
-
 // getting all the required dom ele
 const toggler = document.getElementById("toggler");
 const sidebr = document.getElementById("sidebr");
@@ -38,6 +10,27 @@ const notesList = document.getElementById("notesList");
 const noteInput = document.getElementById("noteInput");
 const saveNotesBtn = document.getElementById("saveNotesBtn");
 
+// firebase initialization
+
+firebase.initializeApp(config);
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+
+// markdown parser
+
+const markdown = markdownit({
+    linkify: false,
+    typographer: false,
+    quotes: "“”‘’",
+});
+
+// markdown parsing eventlistner
+
+mainEditorArea.addEventListener("keypress", (e) => {
+    let result = markdown.render(e.target.value);
+    mainNotes.innerHTML = result;
+});
+
 // default screen eventlistners for toggling sidebar
 toggler.addEventListener("click", () => {
     sidebr.style.display == "none"
@@ -47,7 +40,7 @@ toggler.addEventListener("click", () => {
 
 // function for appending new note to notes list
 const appendNewNote = (listChild) => {
-    let newNote = document.createElement("li");
+    const newNote = document.createElement("li");
     newNote.setAttribute("class", "my-note");
     newNote.textContent = listChild;
 
@@ -57,7 +50,6 @@ const appendNewNote = (listChild) => {
         throw new Error(err.message);
     }
 };
-
 function addNote(value) {
     appendNewNote(noteInput.value);
     noteInput.value = "";
@@ -76,41 +68,75 @@ addNoteBtn.addEventListener("click", () => {
     if (note !== "") addNote(note);
 });
 
-// markdown parsing eventlistner
+// save notes
 
-mainEditorArea.addEventListener("keypress", (e) => {
-    let result = markdown.render(e.target.value);
-    mainNotes.innerHTML = result;
-});
-
+const allNotes = [];
 saveNotesBtn.addEventListener("click", () => {
-    let allNotesList = [];
-    notesList.childNodes.forEach((note) => {
-        allNotesList.push(note.textContent);
-    });
-
     const id = Math.floor(Math.random() * 1000);
 
-    // auth.onAuthStateChanged((user) => {
-    //     if (user) {
-    //         firestore
-    //             .collection(user.uid)
-    //             .doc("_" + id)
-    //             .set({
-    //                 id: "_" + id,
-    //                 notesList,
-    //                 markdown,
-    //                 parsedNotes,
-    //             })
-    //             .then(() => {
-    //                 console.log("todo added");
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err.message);
-    //             });
-    //     } else {
-    //         alert("Can not save your notes, please login first");
-    //         location = "/login.html";
-    //     }
-    // });
+    let notesObj = {
+        note: notesList.textContent,
+        markdown: mainEditorArea.value,
+        parsedmarkdown: mainNotes.textContent,
+    };
+    allNotes.push(notesObj);
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            firestore
+                .collection(user.uid)
+                .doc("usernote")
+                .set({
+                    id: id,
+                    allNotes,
+                })
+                .then(() => {
+                    console.log("notes added");
+                })
+                .catch((err) => {
+                    console.log(err.message);
+                });
+        } else {
+            console.log("somthing wrong happened");
+        }
+    });
+});
+
+// rendering notes in
+
+function renderData(data) {
+    console.log(data);
+}
+
+// get notes
+
+function getNotes(uid) {
+    firestore
+        .collection(uid)
+        .doc("usernote")
+        .get()
+        .then((snapshot) => {
+            renderData(snapshot.data());
+        });
+}
+
+// check if user is exists or not, and if exists get user id for fetching notes.
+
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        firestore
+            .collection("users")
+            .doc(user.uid)
+            .get()
+            .then((snapshot) => {
+                let username = snapshot.data().displayName;
+
+                let uid = user.uid;
+                getNotes(uid);
+            });
+    } else {
+        alert(
+            "your login session has expired or you have logged out, login again to continue"
+        );
+        location = "login.html";
+    }
 });
